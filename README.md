@@ -11,7 +11,7 @@ Save _FF B772 Yawman Multipress.lua_ to /X-Plane 12/Resources/plugins/FlyWithLua
 
 Assignments closely matches Yawman's PMDG 777 mappings. See their [discord](https://discord.gg/dcpTc5KP).
 
-Also see [the Yawman Mappings script for the Felis 747-200](https://github.com/rpmik/Lua-Controller-Mapping-Felis-B742).
+Also see [the script for the Felis 747-200](https://github.com/rpmik/Lua-Controller-Mapping-Felis-B742).
 
 # Assignments are In Work!
 
