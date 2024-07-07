@@ -1,3 +1,5 @@
+* Also see [the script for the Felis 747-200](https://github.com/rpmik/Lua-Controller-Mapping-Felis-B742).
+
 # Requirements
 * [X-Plane 12](https://www.x-plane.com/) as I'm not testing this in X-Plane 11
 * [Flight Factor 777-200 for X-Plane 12](https://store.x-plane.org/777-200ER-v2-Ultimate_p_1883.html)
@@ -10,8 +12,6 @@ Note that the current script does not modify your axes. You'll need to set up yo
 Save _FF B772 Yawman Multipress.lua_ to /X-Plane 12/Resources/plugins/FlyWithLua/Scripts
 
 Assignments closely matches Yawman's PMDG 777 mappings. See their [discord](https://discord.gg/dcpTc5KP).
-
-Also see [the script for the Felis 747-200](https://github.com/rpmik/Lua-Controller-Mapping-Felis-B742).
 
 # Assignments are In Work!
 
