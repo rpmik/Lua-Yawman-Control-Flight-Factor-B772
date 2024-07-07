@@ -247,32 +247,32 @@ function multipressFFB772_buttons()
 				-- Cockpit camera height not implemented as it deals with the rudder axes.....
 			if sp1_pressed and not MULTI_SIXPACK_PRESSED then
 				if dpad_up_pressed then
-					-- EFB but this doesn't quite work.
-					set_pilots_head(-0.192615,5.761881,-26.331472,292.994873,-21.840799)
+					-- EFB but this doesn't quite work. 777
+					set_pilots_head(-0.756343,1.648857,-27.463831,327.1875,-38.166687)
 				else
-					-- Glareshield
-					set_pilots_head(-0.006319,5.692539,-26.430994,0.0,-34.339977)
+					-- Glareshield 777
+					set_pilots_head(-0.024326,1.778529,-27.437494,0.375000,-7.333365)
 				end
 				MULTI_SIXPACK_PRESSED = true
 			elseif sp2_pressed and not MULTI_SIXPACK_PRESSED then
-				-- Radios, Radar, EPR
-				set_pilots_head(0.004310,5.604949,-26.181566,0.1875,-85.935745)
+				-- Nav, CDU, Transponder, etc 777
+				set_pilots_head(-0.039730,1.654469,-27.160631,0.375001,-69.333466)
 				MULTI_SIXPACK_PRESSED = true
 			elseif sp3_pressed and not MULTI_SIXPACK_PRESSED then
-				-- FMS
-				set_pilots_head(-0.257584,5.381901,-26.629328,15.519982,-52.581673)
+				-- FMS 777
+				set_pilots_head(-0.294509,1.626397,-27.513678,31.500002,-37.127251)
 				MULTI_SIXPACK_PRESSED = true
 			elseif sp4_pressed and not MULTI_SIXPACK_PRESSED then
-				-- Overhead panel
-				set_pilots_head(-0.001256,5.326951,-26.096092,359.625,65.174461)
+				-- Overhead panel 777
+				set_pilots_head(0.064213,1.609928,-27.090744,360.000000,57.166637)
 				MULTI_SIXPACK_PRESSED = true
 			elseif sp5_pressed and not MULTI_SIXPACK_PRESSED then
-				-- FE upper
-				set_pilots_head(-0.178310,5.691501,-25.147821,89.836227,14.740208)
+				-- Throttles, flaps, speed brake, pitch trim, fuel cutoffs 
+				set_pilots_head(-0.015778,1.763360,-27.522243,0.187500,-63.333344)
 				MULTI_SIXPACK_PRESSED = true
 			elseif sp6_pressed and not MULTI_SIXPACK_PRESSED then
-				-- FE lower
-				set_pilots_head(-0.178310,5.691501,-25.147821,90.398727,-13.926468)
+				-- CB Panel 777
+				set_pilots_head(0.065356,1.808160,-26.749197,359.437500,64.999985)
 				MULTI_SIXPACK_PRESSED = true
 			end
 			
@@ -297,13 +297,12 @@ function multipressFFB772_buttons()
 			
 			-- logic is off, does not work, gotta fix this...
 			if dpad_left_pressed then
-				-- Pilot's seat
-				set_pilots_head(-0.497226,5.741722,-26.197409,0.0,-12.625139)
+				-- Pilot's seat 777
+				set_pilots_head(-0.533400,1.870000,-27.118057,0.000000,-5.000000)
 
 			elseif dpad_right_pressed then
-				-- Copilot's seat
-				set_pilots_head(0.541737,5.741722,-26.197409,0.0,-12.625139)
-
+				-- Copilot's seat 777
+				set_pilots_head(0.574006,1.870000,-27.118057,0.000000,-5.000000)
 
 			end
 			STILL_PRESSED = true
