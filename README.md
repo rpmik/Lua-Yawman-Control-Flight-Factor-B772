@@ -19,4 +19,3 @@ Assignments closely matches Yawman's PMDG 777 mappings. See their [discord](http
 * Finish 777 assignments. Original script was for the Felis 747-200.
 * ~~Reassign cockpit views~~
 * Implement radio tuning
-* Implement cockpit views
