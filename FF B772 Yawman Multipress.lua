@@ -116,17 +116,6 @@ function multipressFFB772_buttons()
 -- Auto pilot engage A 
 		
 		if right_bumper_pressed and not dpad_up_pressed and not STILL_PRESSED then
-			--DataRef("AP_ENGAGED","1-sim/command/mcpApLButton_button","readonly")
---[[
-			if AP_ENGAGED == 0 then
-				-- No one ever goes into just Manual mode, right? So skip straight to Command mode.
-				command_once("B742/command/AP_A_engage_up") -- Manual Mode
-				command_once("B742/command/AP_A_engage_up") -- Command Mode
-			elseif AP_ENGAGED == 2 then
-				command_once("B742/command/AP_A_engage_down") -- Manual Mode
-				command_once("B742/command/AP_A_engage_down") -- Off
-			end
-]]
 			command_once("1-sim/command/mcpApLButton_button")
 			STILL_PRESSED = true
 		
