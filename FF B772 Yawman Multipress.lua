@@ -182,38 +182,9 @@ function multipressFFB772_buttons()
 			
 				-- Landing Lights - not available in the felis, unfortunately.
 			if sp6_pressed and not MULTI_SIXPACK_PRESSED then
-		--[[	--We can use this for standard single landing light:
-				--command_once("sim/lights/landing_lights_toggle")
-				-- Or for aircraft with multiple landing light toggles. Lua is fine casting ints and strs in Print (...)
-				for i = 1, 9 do
-					command_once("sim/lights/landing_0" .. i .. "_light_tog")
-				end
-				for i = 10, 16 do
-					command_once("sim/lights/landing_" .. i .. "_light_tog")
-				end
-		]]
-				-- The Felis B742 does not have standard landing light commands. We must use writable datarefs.
-				-- For these DataRefs: 0 is Off, 1 is On
-				-- Would be nice to try these in a Lua table?
-				-- Modern FlyWithLua 2.3 way of doing things; do not use Set
---[[
-				DataRef("Inbd_Left","B742/ext_light/landing_inbd_L_sw","writable")
-				DataRef("Inbd_Right","B742/ext_light/landing_inbd_R_sw","writable")
-				DataRef("Outbd_Left","B742/ext_light/landing_outbd_L_sw","writable")
-				DataRef("Outbd_Right","B742/ext_light/landing_outbd_R_sw","writable")
-
-				if Inbd_Left == 0 and Outbd_Left == 0 then
-					Inbd_Left = 1
-					Inbd_Right = 1
-					Outbd_Left = 1
-					Outbd_Right = 1
-				elseif Inbd_Left == 1 and Outbd_Left == 1 then
-					Inbd_Left = 0
-					Inbd_Right = 0
-					Outbd_Left = 0
-					Outbd_Right = 0
-				end
-]]
+				command_once("1-sim/command/landingLightLeftSwitch_trigger")
+				command_once("1-sim/command/landingLightNoseSwitch_trigger")
+				command_once("1-sim/command/landingLightRightSwitch_trigger")
 				MULTI_SIXPACK_PRESSED = true
 			else
 				STILL_PRESSED = true
