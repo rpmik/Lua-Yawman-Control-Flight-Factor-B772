@@ -97,8 +97,6 @@ function multipressFFB772_buttons()
 		dpad_left_pressed = button(DPAD_LEFT)
 		dpad_right_pressed = button(DPAD_RIGHT)
 		
-		--need to figure out how to do nothing for duration of buttons being pressed
-
 -- Start expanded control logic
 
 		if dpad_center_pressed and not CHASE_VIEW and not STILL_PRESSED then
@@ -144,11 +142,9 @@ function multipressFFB772_buttons()
 			-- Flight director isn't very useful on the B742, just command bars, so will make this roll mode INS, which is basically the real flight directory.
 			if not STILL_PRESSED then -- Do not constantly set the button assignment every frame
 				set_button_assignment(RIGHT_BUMPER,"1-sim/command/mcpFdLSwitch_trigger")
-				--set_button_assignment(DPAD_LEFT,"1-sim/command/mcpHdgCelButton_button")
 				set_button_assignment(DPAD_RIGHT,"1-sim/command/mcpLnavButton_button")
 				set_button_assignment(DPAD_LEFT,"1-sim/command/mcpLocButton_button")
 				set_button_assignment(DPAD_DOWN,"1-sim/command/mcpAppButton_button")
-				--set_button_assignment(DPAD_DOWN,"B742/command/AP_nav_select_LAND")
 			end
 					
 			-- Flash Light
@@ -255,7 +251,6 @@ function multipressFFB772_buttons()
 				set_button_assignment(DPAD_RIGHT,"sim/none/none")
 			end
 			
-			-- logic is off, does not work, gotta fix this...
 			if dpad_left_pressed then
 				-- Pilot's seat 777
 				set_pilots_head(-0.533400,1.870000,-27.118057,0.000000,-5.000000)
