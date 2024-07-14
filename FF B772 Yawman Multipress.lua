@@ -196,6 +196,7 @@ function multipressFFB772_buttons()
 
 -- parking brake			
 		if left_bumper_pressed then
+			set_button_assignment(SIXPACK_2,"sim/none/none")
 			if not STILL_PRESSED then
 				set_button_assignment(WHEEL_UP,"sim/flight_controls/brakes_toggle_max")
 				set_button_assignment(WHEEL_DOWN,"sim/flight_controls/brakes_toggle_max")
