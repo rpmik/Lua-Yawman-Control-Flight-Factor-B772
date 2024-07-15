@@ -170,6 +170,8 @@ function multipressFFB772_buttons()
 				command_once("1-sim/command/landingLightLeftSwitch_trigger")
 				command_once("1-sim/command/landingLightNoseSwitch_trigger")
 				command_once("1-sim/command/landingLightRightSwitch_trigger")
+				command_once("1-sim/command/runwayTurnoffRightSwitch_trigger")
+				command_once("1-sim/command/runwayTurnoffLeftSwitch_trigger")
 				MULTI_SIXPACK_PRESSED = true
 			else
 				STILL_PRESSED = true
