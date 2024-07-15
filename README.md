@@ -51,7 +51,7 @@ Some Yawman documentation refer to these as MF 1L (SP1), MF 1C (SP2), MF 1R (SP3
 	* DPAD Up = VS Down
 	* DPAD Down = VS Up
 	* Right Bumper = VS Button
-* LEFT Bumper plus
+* LEFT Bumper then
 	* Wheel Up/Down = Brakes Max (Parking Brake)
 	* SP1 = View, Glareshield
 	* SP2 = View, Radios; Radar; EPR
@@ -59,6 +59,7 @@ Some Yawman documentation refer to these as MF 1L (SP1), MF 1C (SP2), MF 1R (SP3
 	* SP4 = Overhead panel
 	* SP5 = Throttles, Speed Brake, Fuel etc
 	* SP6 = Circuit Breaker Panel
+	* Right Bumper = MCP Captain's AP Disconnect
 	
 * DPAD Up plus
 	* Wheel Up = Flaps Up
