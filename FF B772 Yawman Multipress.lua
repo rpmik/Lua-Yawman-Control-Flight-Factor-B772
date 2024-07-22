@@ -188,7 +188,11 @@ function multipressFFB772_buttons()
 		end
 		
 		if sp6_pressed then
+			
 			if not STILL_PRESSED then
+				set_button_assignment(DPAD_LEFT,"1-sim/command/cptHsiBaroRotary_rotary-")
+				set_button_assignment(DPAD_RIGHT,"1-sim/command/cptHsiBaroRotary_rotary+")
+				set_button_assignment(DPAD_CENTER,"1-sim/command/cptHsiStdButton_button")
 				set_button_assignment(DPAD_UP,"1-sim/command/mcpVsRotary_rotary-")
 				set_button_assignment(DPAD_DOWN,"1-sim/command/mcpVsRotary_rotary+")
 				set_button_assignment(RIGHT_BUMPER,"1-sim/command/mcpVsButton_button")
