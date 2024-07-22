@@ -46,6 +46,8 @@ local DPAD_PRESSED = false
 
 local CHASE_VIEW = false
 
+local NoCommand = "sim/none/none"
+
 function multipressFFB772_buttons() 
     -- if aircraft is Boeing 777-200 then procede
     if PLANE_ICAO == "B772" then 
@@ -54,20 +56,20 @@ function multipressFFB772_buttons()
 
 		-- Base Config buttons that should almost always get reassigned except during a press
         if not STILL_PRESSED then -- avoid overwriting assignments during other activity
-			set_button_assignment(DPAD_UP,"sim/none/none")
-			set_button_assignment(DPAD_DOWN,"sim/none/none")
+			set_button_assignment(DPAD_UP,NoCommand)
+			set_button_assignment(DPAD_DOWN,NoCommand)
 			set_button_assignment(DPAD_LEFT,"sim/general/zoom_out_fast")
 			set_button_assignment(DPAD_RIGHT,"sim/general/zoom_in_fast")
-			set_button_assignment(WHEEL_UP, "sim/none/none")
-			set_button_assignment(WHEEL_DOWN, "sim/none/none")
-			set_button_assignment(LEFT_BUMPER, "sim/none/none") -- multifunction
-			set_button_assignment(RIGHT_BUMPER, "sim/none/none") -- multifunction
-			set_button_assignment(SIXPACK_1,"sim/none/none")
+			set_button_assignment(WHEEL_UP, NoCommand)
+			set_button_assignment(WHEEL_DOWN, NoCommand)
+			set_button_assignment(LEFT_BUMPER, NoCommand) -- multifunction
+			set_button_assignment(RIGHT_BUMPER, NoCommand) -- multifunction
+			set_button_assignment(SIXPACK_1,NoCommand)
 			set_button_assignment(SIXPACK_2,"sim/flight_controls/brakes_regular")
-			set_button_assignment(SIXPACK_3,"sim/none/none")		
-			set_button_assignment(SIXPACK_4,"sim/none/none")
-			set_button_assignment(SIXPACK_5,"sim/none/none")
-			set_button_assignment(SIXPACK_6,"sim/none/none")			
+			set_button_assignment(SIXPACK_3,NoCommand)		
+			set_button_assignment(SIXPACK_4,NoCommand)
+			set_button_assignment(SIXPACK_5,NoCommand)
+			set_button_assignment(SIXPACK_6,NoCommand)			
 			set_button_assignment(POV_UP,"sim/flight_controls/pitch_trim_up")
 			set_button_assignment(POV_DOWN,"sim/flight_controls/pitch_trim_down")
 			set_button_assignment(POV_LEFT,"sim/view/glance_left")
@@ -202,7 +204,7 @@ function multipressFFB772_buttons()
 
 -- parking brake			
 		if left_bumper_pressed then
-			set_button_assignment(SIXPACK_2,"sim/none/none")
+			set_button_assignment(SIXPACK_2,NoCommand)
 			set_button_assignment(RIGHT_BUMPER,"1-sim/command/mcpApDiscSwitch_button")
 			if not STILL_PRESSED then
 				set_button_assignment(WHEEL_UP,"sim/flight_controls/brakes_toggle_max")
@@ -255,8 +257,8 @@ function multipressFFB772_buttons()
 				set_button_assignment(POV_UP,"sim/view/straight_up")
 				set_button_assignment(POV_DOWN,"sim/view/straight_down")
 		
-				set_button_assignment(DPAD_LEFT,"sim/none/none")
-				set_button_assignment(DPAD_RIGHT,"sim/none/none")
+				set_button_assignment(DPAD_LEFT,NoCommand)
+				set_button_assignment(DPAD_RIGHT,NoCommand)
 			end
 			
 			if dpad_left_pressed then
