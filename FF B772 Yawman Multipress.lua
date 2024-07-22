@@ -39,7 +39,6 @@ local DPAD_DOWN = 23
 local DPAD_RIGHT = 24
 
 -- Logic states to keep button assignments sane
-local PAUSE_STATE = false
 local STILL_PRESSED = false -- track presses for everything
 local MULTI_SIXPACK_PRESSED = false -- track presses for only the six pack where there's multiple six pack buttons involved
 local DPAD_PRESSED = false
@@ -150,7 +149,6 @@ function multipressFFB772_buttons()
 				MULTI_SIXPACK_PRESSED = true
 			end
 			STILL_PRESSED = true
-		
 		end
 
 		if sp3_pressed then
