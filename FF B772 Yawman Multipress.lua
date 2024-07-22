@@ -115,7 +115,6 @@ function multipressFFB772_buttons()
 		if right_bumper_pressed and not dpad_up_pressed and not STILL_PRESSED then
 			command_once("1-sim/command/mcpApLButton_button")
 			STILL_PRESSED = true
-		
 		end
 		
 -- autopilot control
@@ -132,9 +131,8 @@ function multipressFFB772_buttons()
 			if sp2_pressed and sp3_pressed and not MULTI_SIXPACK_PRESSED then
 				command_once("sim/operation/pause_toggle")
 				MULTI_SIXPACK_PRESSED = true
-			else
-				STILL_PRESSED = true
 			end
+			STILL_PRESSED = true
 		end
 		
 		if sp2_pressed then
@@ -150,9 +148,8 @@ function multipressFFB772_buttons()
 			if sp5_pressed and not MULTI_SIXPACK_PRESSED then
 				command_once("sim/view/flashlight_red")
 				MULTI_SIXPACK_PRESSED = true
-			else
-				STILL_PRESSED = true
 			end
+			STILL_PRESSED = true
 		
 		end
 
@@ -170,9 +167,8 @@ function multipressFFB772_buttons()
 				command_once("1-sim/command/landingLightNoseSwitch_trigger")
 				command_once("1-sim/command/landingLightRightSwitch_trigger")
 				MULTI_SIXPACK_PRESSED = true
-			else
-				STILL_PRESSED = true
 			end
+			STILL_PRESSED = true
 		end
 		
 		if sp5_pressed then
