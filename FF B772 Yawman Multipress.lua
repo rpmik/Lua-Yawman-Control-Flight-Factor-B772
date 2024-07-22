@@ -42,6 +42,7 @@ local DPAD_RIGHT = 24
 local STILL_PRESSED = false -- track presses for everything
 local MULTI_SIXPACK_PRESSED = false -- track presses for only the six pack where there's multiple six pack buttons involved
 local DPAD_PRESSED = false
+local BUMPERS_PRESSED = false
 
 local CHASE_VIEW = false
 
@@ -211,10 +212,9 @@ function multipressFFB772_buttons()
 			end
 ]]
 			
-			if wheel_up_pressed then
-				meterB772Interaction("sim/flight_controls/brakes_toggle_max", "sim/flight_controls/brakes_toggle_max", 2.0, 2.0) -- at around two seconds, use larger increment
-			elseif wheel_down_pressed then
-				meterB772Interaction("sim/flight_controls/brakes_toggle_max", "sim/flight_controls/brakes_toggle_max", 2.0, 2.0) -- at around two seconds, use larger increment
+			if wheel_up_pressed or wheel_down_pressed then
+				meterB772Interaction(BUMPERS_PRESSED, "sim/flight_controls/brakes_toggle_max", "sim/flight_controls/brakes_toggle_max", 1.0, 2.0) -- at around two seconds, use larger increment
+				BUMPERS_PRESSED = true
 			end
 			
 				-- Cockpit camera height not implemented as it deals with the rudder axes.....
@@ -302,26 +302,30 @@ function multipressFFB772_buttons()
 		if not dpad_up_pressed and not dpad_left_pressed and not dpad_right_pressed and not dpad_down_pressed then
 			DPAD_PRESSED = false
 		end
+		
+		if not left_bumper_pressed and not right_bumper_pressed then
+			BUMPERS_PRESSED = false
+		end
 
     end 
 end
 
 -- If aircraft's interactive Command increment is not continuous or continuous and too fast, use framerate to meter incrementing
-function meterB772Interaction(strCommandName1, strCommandName2, floatSeconds, floatIntervalSpeed)
+function meterB772Interaction(boolButtonPressed, strCommandName1, strCommandName2, floatSeconds, floatIntervalSpeed)
 		-- floatIntervalSpeed -- generally, higher is slower. 
 		
 		-- Set metering based on current frame rate
 		DataRef("FrameRatePeriod","sim/operation/misc/frame_rate_period","writable")
 		CurFrame = FRAME_COUNT
 		
-		if not DPAD_PRESSED then
+		if not boolButtonPressed then
 			FrameRate = 1/FrameRatePeriod
 			-- Roughly calculate how many frames to wait before incrementing based on floatSeconds
 			GoFasterFrameRate = (floatSeconds * FrameRate) + CurFrame -- start five seconds of slow increments
 		end
 
 		if CurFrame < GoFasterFrameRate then
-			if not DPAD_PRESSED then
+			if not boolButtonPressed then
 				command_once(strCommandName1)
 				-- calculate frame to wait until continuing
 				-- if floatSeconds is 2 then we'll wait around 1 second before continuing so as to allow a single standalone increment
@@ -332,7 +336,7 @@ function meterB772Interaction(strCommandName1, strCommandName2, floatSeconds, fl
 					command_once(strCommandName1)
 				end
 			end
-		elseif CurFrame >= GoFasterFrameRate and DPAD_PRESSED then
+		elseif CurFrame >= GoFasterFrameRate and boolButtonPressed then
 			-- If current frame is divisible by five then issue a command -- helps to delay the command in a regular interval
 			if (CurFrame % floatIntervalSpeed) == 0 then
 				command_once(strCommandName2)
