@@ -51,6 +51,9 @@ Some Yawman documentation refer to these as MF 1L (SP1), MF 1C (SP2), MF 1R (SP3
 	* DPAD Down = Hdg Down
 	* Right Bumper = Hdg Button
 * SP6 plus
+	* DPAD Left = Captain's HSI Barometer Decrease
+	* DPAD Right = Captain's HSI Barometer Increase
+	* DPAD Center = Captain's HSI Barometer Standard
 	* DPAD Up = VS Down
 	* DPAD Down = VS Up
 	* Right Bumper = VS Button
