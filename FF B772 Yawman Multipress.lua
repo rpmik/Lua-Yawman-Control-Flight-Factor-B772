@@ -151,6 +151,7 @@ function multipressFFB772_buttons()
 			STILL_PRESSED = true
 		end
 
+		-- Altitude adjustments and landing lights
 		if sp3_pressed then
 			if not STILL_PRESSED then
 				set_button_assignment(DPAD_UP,"1-sim/command/mcpAltRotary_rotary+")
@@ -169,6 +170,7 @@ function multipressFFB772_buttons()
 			STILL_PRESSED = true
 		end
 		
+		-- Heading adjustments
 		if sp5_pressed then
 			if not STILL_PRESSED then
 				set_button_assignment(DPAD_UP,"1-sim/command/mcpHdgRotary_rotary+")
@@ -287,6 +289,41 @@ function multipressFFB772_buttons()
 
     end 
 end
+
+-- If aircraft's interactive Command increment is not continuous or continuous and too fast, use framerate to meter incrementing
+function meterB772Interaction(strCommandName1, strCommandName2, floatSeconds, floatIntervalSpeed)
+		-- floatIntervalSpeed -- generally, higher is slower. 
+		
+		-- Set metering based on current frame rate
+		DataRef("FrameRatePeriod","sim/operation/misc/frame_rate_period","writable")
+		CurFrame = FRAME_COUNT
+		
+		if not DPAD_PRESSED then
+			FrameRate = 1/FrameRatePeriod
+			-- Roughly calculate how many frames to wait before incrementing based on floatSeconds
+			GoFasterFrameRate = (floatSeconds * FrameRate) + CurFrame -- start five seconds of slow increments
+		end
+
+		if CurFrame < GoFasterFrameRate then
+			if not DPAD_PRESSED then
+				command_once(strCommandName1)
+				-- calculate frame to wait until continuing
+				-- if floatSeconds is 2 then we'll wait around 1 second before continuing so as to allow a single standalone increment
+				PauseIncrementFrameCount = ((floatSeconds/2) * FrameRate) + CurFrame
+			else
+				-- wait a beat with PauseIncrementFrameCount then continue
+				if (CurFrame > PauseIncrementFrameCount) and (CurFrame % floatIntervalSpeed) == 0 then
+					command_once(strCommandName1)
+				end
+			end
+		elseif CurFrame >= GoFasterFrameRate and DPAD_PRESSED then
+			-- If current frame is divisible by five then issue a command -- helps to delay the command in a regular interval
+			if (CurFrame % floatIntervalSpeed) == 0 then
+				command_once(strCommandName2)
+			end
+		end			
+end
+
 
 -- Don't mess with other configurations
 if PLANE_ICAO == "B772" then 
