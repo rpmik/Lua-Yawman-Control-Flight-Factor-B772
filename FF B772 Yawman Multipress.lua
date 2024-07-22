@@ -45,6 +45,10 @@ local DPAD_PRESSED = false
 
 local CHASE_VIEW = false
 
+local FRAME_COUNT = 0.0
+local GoFasterFrameRate = 0.0
+local PauseIncrementFrameCount = 0.0
+
 local NoCommand = "sim/none/none"
 
 function multipressFFB772_buttons() 
