@@ -257,8 +257,8 @@ function multipressFFB772_buttons()
 		if dpad_up_pressed then
 			if not STILL_PRESSED then
 				set_button_assignment(RIGHT_BUMPER,"1-sim/command/togaLeftButton_button") -- there's only a toggle (Will investigate later)
-				set_button_assignment(WHEEL_UP,"sim/flight_controls/flaps_down")
-				set_button_assignment(WHEEL_DOWN,"sim/flight_controls/flaps_up")
+				--set_button_assignment(WHEEL_UP,"sim/flight_controls/flaps_down")
+				--set_button_assignment(WHEEL_DOWN,"sim/flight_controls/flaps_up")
 				set_button_assignment(POV_LEFT,"sim/view/glance_left")
 				set_button_assignment(POV_RIGHT,"sim/view/glance_right")
 				set_button_assignment(POV_UP,"sim/view/straight_up")
@@ -266,6 +266,14 @@ function multipressFFB772_buttons()
 		
 				set_button_assignment(DPAD_LEFT,NoCommand)
 				set_button_assignment(DPAD_RIGHT,NoCommand)
+			end
+			
+			if wheel_up_pressed then
+				meterB772Interaction(DPAD_PRESSED, "sim/flight_controls/flaps_down", "sim/flight_controls/flaps_down", 1.0, 2.0) -- at around two seconds, use larger increment
+				DPAD_PRESSED = true
+			elseif wheel_down_pressed then
+				meterB772Interaction(DPAD_PRESSED, "sim/flight_controls/flaps_up", "sim/flight_controls/flaps_up", 1.0, 2.0) -- at around two seconds, use larger increment
+				DPAD_PRESSED = true
 			end
 			
 			if dpad_left_pressed then
