@@ -95,6 +95,9 @@ function multipressFFB772_buttons()
 		dpad_left_pressed = button(DPAD_LEFT)
 		dpad_right_pressed = button(DPAD_RIGHT)
 		
+		wheel_up_pressed = button(WHEEL_UP)
+		wheel_down_pressed = button(WHEEL_DOWN)
+		
 -- Start expanded control logic
 
 		if dpad_center_pressed and not CHASE_VIEW and not STILL_PRESSED then
@@ -197,10 +200,19 @@ function multipressFFB772_buttons()
 		if left_bumper_pressed then
 			set_button_assignment(SIXPACK_2,NoCommand)
 			set_button_assignment(RIGHT_BUMPER,"1-sim/command/mcpApDiscSwitch_button")
+--[[
 			if not STILL_PRESSED then
 				set_button_assignment(WHEEL_UP,"sim/flight_controls/brakes_toggle_max")
 				set_button_assignment(WHEEL_DOWN,"sim/flight_controls/brakes_toggle_max")
 			end
+]]
+			
+			if wheel_up_pressed then
+				meterB772Interaction("sim/flight_controls/brakes_toggle_max", "sim/flight_controls/brakes_toggle_max", 2.0, 2.0) -- at around two seconds, use larger increment
+			elseif wheel_down_pressed then
+				meterB772Interaction("sim/flight_controls/brakes_toggle_max", "sim/flight_controls/brakes_toggle_max", 2.0, 2.0) -- at around two seconds, use larger increment
+			end
+			
 				-- Cockpit camera height not implemented as it deals with the rudder axes.....
 			if sp1_pressed and not MULTI_SIXPACK_PRESSED then
 				if dpad_up_pressed then
