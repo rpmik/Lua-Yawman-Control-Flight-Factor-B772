@@ -49,6 +49,8 @@ local CHASE_VIEW = false
 local FRAME_COUNT = 0.0
 local GoFasterFrameRate = 0.0
 local PauseIncrementFrameCount = 0.0
+local FrameRate = 0.0
+local CurFrame = 0.0
 
 local NoCommand = "sim/none/none"
 
@@ -205,12 +207,6 @@ function multipressFFB772_buttons()
 		if left_bumper_pressed then
 			set_button_assignment(SIXPACK_2,NoCommand)
 			set_button_assignment(RIGHT_BUMPER,"1-sim/command/mcpApDiscSwitch_button")
---[[
-			if not STILL_PRESSED then
-				set_button_assignment(WHEEL_UP,"sim/flight_controls/brakes_toggle_max")
-				set_button_assignment(WHEEL_DOWN,"sim/flight_controls/brakes_toggle_max")
-			end
-]]
 			
 			if wheel_up_pressed or wheel_down_pressed then
 				meterB772Interaction(BUMPERS_PRESSED, "sim/flight_controls/brakes_toggle_max", "sim/flight_controls/brakes_toggle_max", 1.0, 2.0) -- at around two seconds, use larger increment
