@@ -1,5 +1,5 @@
-* Also see [the script for the Felis 747-200](https://github.com/rpmik/Lua-Controller-Mapping-Felis-B742).
-* Also see [the script for the XCrafts E175 (XPlane 12)](https://github.com/rpmik/Lua-Yawman-Control-XCrafts-E175)
+# More Aircraft Scripts for the Yawman Arrow Controller
+* [Full and Most Up To Date Aircraft Script List](https://www.distortions.net/yawman-arrow-controller-xplane/#:~:text=All%20the%20Scripts%20(Github%20Downloads)) (at distortions.net)
 
 # Requirements
 * [X-Plane 12](https://www.x-plane.com/) as I'm not testing this in X-Plane 11
